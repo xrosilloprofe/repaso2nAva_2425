@@ -5,7 +5,7 @@ public class Cliente extends Persona{
     private Set<Mascota> mascotas;
     private static int codCliente=0;
 
-    public Cliente(String nombre, String DNI, Set<Mascota> mascotas) {
+    public Cliente(String nombre, String DNI, Set<Mascota> mascotas)  throws ExcepcionDNI{
         super(nombre, DNI);
         codCliente++;
         this.mascotas = mascotas;
@@ -17,5 +17,10 @@ public class Cliente extends Persona{
 
     public static int getCodCliente() {
         return codCliente;
+    }
+
+    @Override
+    public String etiqueta(){
+        return super.etiqueta() + mascotas;
     }
 }

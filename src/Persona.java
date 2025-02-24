@@ -10,12 +10,13 @@ public abstract class Persona implements Etiquetaje{
     private Sexo sexo;
 
     //Constructores
-    public Persona(String nombre, String DNI) {
+    public Persona(String nombre, String DNI) throws ExcepcionDNI{
         this.nombre = nombre;
+        if(DNI.length()==0) throw new ExcepcionDNI("sin DNI");
         this.DNI = DNI;
     }
 
-    public Persona(String nombre, String DNI, LocalDate fechaNac){
+    public Persona(String nombre, String DNI, LocalDate fechaNac) throws ExcepcionDNI{
         this(nombre, DNI);
         this.fechaNac = fechaNac;
     }
